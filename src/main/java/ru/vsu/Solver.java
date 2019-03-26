@@ -28,8 +28,6 @@ public class Solver {
         double[][] pointsArray = points.getChildren().stream()
                 .map(node -> new double[]{((Circle) node).getCenterX(), ((Circle) node).getCenterY()})
                 .toArray(double[][]::new);
-//        pointsArray = new double[][]{{200, 200}, {400, 250}, {600, 200}, {400,150}};
-//        pointsArray = new double[][]{{1, 2}, {2, 1}, {3, 1}, {1, 1}, {2, 2}};
         pointsMatrix = MatrixUtils.createRealMatrix(pointsArray);
     }
 

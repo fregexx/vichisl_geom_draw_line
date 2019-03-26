@@ -13,12 +13,25 @@ public class LineCoefficients {
         this.C = C;
     }
 
-    public Line getLine(double screenWidth) {
-        double startX = 0;
-        double startY = B == 0 ? 0 : -C / B;
-        double endX = screenWidth;
-        double endY = B == 0 ? 0 : (-C - A * screenWidth) / B;
-
+    public Line getLine(double screenWidth, double screenHeight) {
+        double startX;
+        double startY;
+        double endX;
+        double endY;
+        if (A == 0) {
+            startX = 0;
+            endX = screenWidth;
+            startY = endY = -C / B;
+        } else if (B == 0) {
+            startY = 0;
+            endY = screenWidth;
+            startX = endX = -C / A;
+        } else {
+            startX = 0;
+            startY = -C / B;
+            endX = screenWidth;
+            endY = (-C - A * screenWidth) / B;
+        }
         return new Line(startX, startY, endX, endY);
     }
 }

@@ -5,12 +5,18 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.control.Label?>
+<?import javafx.geometry.Insets?>
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.vsu.Main">
    <children>
       <VBox prefWidth="150.0" style="-fx-background-color: #DADADA;">
          <children>
             <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleClearButton" prefWidth="150.0" text="Clear" />
             <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleDrawLineButton" prefWidth="150.0" text="Draw Line" />
+            <Label text="Points presets:" prefWidth="150.0" alignment="BOTTOM_CENTER" prefHeight="35" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleLoadSquarePresetButton" prefWidth="150.0" text="Square" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleLoadHorizontalPresetButton" prefWidth="150.0" text="Horisontal" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleLoadVerticalPresetButton" prefWidth="150.0" text="Vertical" />
          </children>
       </VBox>
       <Pane fx:id="canvasPane" onMouseClicked="#handleMouseClicked" prefWidth="650.0" />

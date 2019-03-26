@@ -36,23 +36,52 @@ public class Main extends Application {
 
     @FXML
     void handleDrawLineButton(ActionEvent e) {
+//        customInput();
         Solver solver = new Solver();
         solver.solve(points);
         LineCoefficients lineCoefficients = solver.getLineCoefficients();
-        this.line = lineCoefficients.getLine(canvasPane.getWidth());
+        this.line = lineCoefficients.getLine(canvasPane.getWidth(), canvasPane.getHeight());
 
         canvasPane.getChildren().add(line);
     }
 
+    @FXML
+    private void handleLoadSquarePresetButton() {
+        Circle point = new Circle(100, 100, 3, Color.CORAL);
+        Circle point2 = new Circle(100, 200, 3, Color.CORAL);
+        Circle point3 = new Circle(200, 200, 3, Color.CORAL);
+        Circle point4 = new Circle(200, 100, 3, Color.CORAL);
+        points.getChildren().add(point);
+        points.getChildren().add(point2);
+        points.getChildren().add(point3);
+        points.getChildren().add(point4);
+    }
+
+    @FXML
+    private void handleLoadVerticalPresetButton() {
+        Circle point = new Circle(200, 100, 3, Color.CORAL);
+        Circle point2 = new Circle(200, 300, 3, Color.CORAL);
+        points.getChildren().add(point);
+        points.getChildren().add(point2);
+    }
+
+    @FXML
+    private void handleLoadHorizontalPresetButton() {
+        Circle point = new Circle(100, 200, 3, Color.CORAL);
+        Circle point2 = new Circle(300, 200, 3, Color.CORAL);
+        points.getChildren().add(point);
+        points.getChildren().add(point2);
+    }
+
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/sample.fxml"));
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         points = new Group();
         canvasPane.getChildren().add(points);
     }
